@@ -1,3 +1,104 @@
 # Assignment 1: Quarto template
 
 
+## **Instructions: Please read through this before you begin**
+
+- This assignment is due by **10pm on Thursday 09/04/2025**.
+
+- For this assignment, please **reproduce this markdown file exactly as
+  shown** using Quarto (including this list of instructions). You do
+  **NOT** need to fill out the code chunks (i.e. answer the questions)
+  for this assignment. We are just practicing markdown formatting right
+  now.
+
+- Please name your Quarto file `assignment_1.qmd`
+
+- Set the output format to `gfm` to produce the correct `.md` file for
+  github rendering.
+
+- Pay attention to all the formatting in this file, including bullet
+  points, bold characters, inserted code chunks, headings, text colors,
+  blank lines, and etc. You will need to reproduce all of these.
+
+- You will use the product of this assignment as a template for your
+  fourth assignment, where you will actually fill out the code chunks.
+
+- You will have to submit your assignment through GitHub. You can
+  complete your template after Thursday’s class, but don’t worry about
+  submitting it until after we have gone over how to submit it through
+  GitHub in next Tuesday’s class. To do so, you will first move
+  `assignment_1.qmd` and `assignment_1.md` to the `problem_sets` folder
+  in your own GitHub repository that you have created in class through
+  GitHub Classroom. (If you haven’t created this repo yet, please use
+  the following url: <https://classroom.github.com/a/StaRJQLV>). Then,
+  you can stage these files, make a commit, and push the commit.
+
+## Load Packages
+
+To start, load all the required packages with the following code.
+Install them if they are not installed yet.
+
+``` r
+library(tidyverse)
+library(knitr)
+```
+
+## Exercise 1. Corruption and human development
+
+This exercise explores a dataset containing the human development index
+(`HDI`) and corruption perception index (`CPI`) of 173 countries across
+6 different regions around the world: Americas, Asia Pacific, Eastern
+Europe and Central Asia (`East EU Cemt`), Western Europe
+(`EU W. Europe`), Middle East and North Africa and Noth Africa (`MENA`),
+and Sub-Saharan Africa (`SSA`). (Note: the larger `CPI` is, the less
+corrupted the country is perceived to be.)
+
+First, we load the data using the following code.
+
+``` r
+economist_data <- read_csv("https://raw.githubusercontent.com/nt246/NTRES-6100-data-science/master/datasets/EconomistData.csv")
+```
+
+#### **1.1 Show the first few rows of `economist_data`.**
+
+``` r
+## Write your code here
+```
+
+#### **1.2 Expore the relationship between human development index (`HDI`) and corruption perception index (`CPI`) with a scatter plot as the following.**
+
+``` r
+## Write your code here
+```
+
+#### **1.3 Make the color of all points in the previous plot red.**
+
+``` r
+## Write your code here
+```
+
+#### **1.4 Color the points in the previous plot according to the `Region` variable, and set the size of points to 2.**
+
+``` r
+## Write your code here
+```
+
+#### **1.5 Set the size of the points proportional to `HDI.Rank`**
+
+``` r
+## Write your code here
+```
+
+#### **1.6 Fit a smoothing line to all the data points in the scatter plot from Excercise 1.4**
+
+``` r
+## Write your code here
+```
+
+#### **1.7 Fit a separate straight line for each region instead, and turn off the confidence interval.**
+
+``` r
+## Write your code here
+```
+
+#### 
