@@ -1,0 +1,76 @@
+---
+title: "Data Wrangling"
+format: html
+editor: visual
+---
+
+This document will be all about data wrangling.
+
+## Loading and Summarizing COVID Data
+
+Libraries and things to load
+
+We're loading the coronavirus data, and the cool thing about github is that you can load the data directly from a url so you are always making sure to get the most current version of the data.
+
+```{r}
+#install.packages("tidyverse")
+#install.packages("skimr")
+library(tidyverse)
+library(skimr)
+```
+
+```{r}
+coronavirus <- read_csv('https://raw.githubusercontent.com/RamiKrispin/coronavirus/master/csv/coronavirus.csv')
+
+summary(coronavirus)
+
+skim(coronavirus)
+
+coronavirus$cases
+```
+
+You can also start to filter the dataset according to certain characteristics by using the filter function. You don't need to put quotes around the variable name because those are already encoded into the dataset, but when you want to look for a text string, like "US", you should use quotation marks.
+
+```{r}
+filter(coronavirus, cases > 0)
+
+filter(coronavirus, country == "US" | country == "Canada")
+
+filter(coronavirus, country == "US" & type == "death")
+filter(coronavirus, country == "US", type == "death")
+
+filter(coronavirus, country != "US")
+```
+
+Then you can take these tibbles and save them as subsets of the data.
+
+```{r}
+coronavirus.us <- filter(coronavirus, country == "US")
+```
+
+If we wanted to write country only once and call to different countries, we have to make it into a vector. The %in% refers to something that would match either of the strings called on.
+
+```{r}
+filter(coronavirus, country %in% c("US", "Canada"))
+```
+
+### Exercise 1
+
+Subset the data to show only thte death counts in three European countries on September 16, 2021
+
+```{r}
+
+View(count(coronavirus, country))
+
+filter(coronavirus, country %in% c("Denmark", "Italy", "Spain"), type == "death", date == "2021-09-16")
+
+select(coronavirus, date, country, type, cases)
+```
+
+```{r}
+select(coronavirus, date, country, type, cases)
+```
+
+```{r}
+select(coronavirus, country, lat, long)
+```
